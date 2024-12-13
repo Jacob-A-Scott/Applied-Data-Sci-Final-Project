@@ -72,14 +72,13 @@ app.layout = dbc.Container([
                     dbc.Col([
                         dbc.Alert(
                         [html.Strong("Tip:"),
-                         html.Br(),
                          html.P("Click or double-click legend items to toggle the visibility of leads.")],
                         color="info",
                         dismissable=True,
                         is_open=True,
                         ),
                     ], width=4, className='me-4')
-                ], justify='end', className='mt-4'),
+                ], justify='center', className='mt-4 mb-2'),
 
         dbc.Card([
 
@@ -89,7 +88,7 @@ app.layout = dbc.Container([
                 html.H5(id='current-beat-title', className='text-center'),
 
                 # Main ECG plot!
-                dcc.Graph(id='ecg-plot', config={'displayModeBar': True}, style={'width': '100%', 'height': '45vh'}),
+                dcc.Graph(id='ecg-plot', config={'displayModeBar': True}, style={'width': '100%', 'height': '100%'}),
 
                 html.Br(),
 
@@ -103,10 +102,9 @@ app.layout = dbc.Container([
                         {'label': 'S Offset', 'value': 'S_Offset'}
                     ],
                     value='Q_Onset',
-                    className='mb-3'
+                    className='mb-4'
                 ),
 
-                # User tip for plot legend
                 html.Div("Click on the plot at the correct time point for the selected boundary.", className='mb-3'),
 
                 dbc.Row([
