@@ -77,7 +77,7 @@ app.layout = dbc.Container([
                         dismissable=True,
                         is_open=True,
                         ),
-                    ], width=4, className='me-4')
+                    ], width=6, className='me-4')
                 ], justify='center', className='mt-4 mb-2'),
 
         dbc.Card([
