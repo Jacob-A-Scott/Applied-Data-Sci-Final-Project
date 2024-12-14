@@ -35,7 +35,7 @@ print("Number of unique beats:", len(unique_beats))
 # "The combined evaluation of Lead I, Lead II and aVF – allows rapid and accurate QRS assessment."
 #  - https://litfl.com/ecg-axis-interpretation/
 composite_leads = ['I', 'II', 'aVF']
-composite_title = 'Composite (Mean of I, II, aVF)'
+composite_title = 'Composite (I, II, aVF)'
 print(composite_title)
 df['Composite'] = df[composite_leads].mean(axis=1)
 print("Composite signal created.")
