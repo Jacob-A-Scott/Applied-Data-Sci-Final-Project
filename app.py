@@ -63,7 +63,7 @@ app.layout = dbc.Container([
             dbc.Input(id='num-beats-input', type='number', value=5, min=1, step=1),
             dbc.Button("Start Labeling", id='start-button', n_clicks=0, color='primary', className='mt-2')
         ], width=4)
-    ], justify='center', className='mt-4 mb-4'),
+    ], justify='center', className='mb-4'),
 
     # This section will expand and become visible when the input beats are defined
     dbc.Collapse([
@@ -71,13 +71,15 @@ app.layout = dbc.Container([
             dbc.Row([
                     dbc.Col([
                         dbc.Alert(
-                        [html.Strong("Tip:"),
-                         html.P("Click or double-click legend items to toggle the visibility of leads.")],
+                            [
+                                html.Strong("Hint: "),
+                                "Try clicking and couble-clicking leads in the legend to toggle visibility."
+                            ],
                         color="info",
                         dismissable=True,
                         is_open=True,
                         ),
-                    ], width=8, className='me-4')
+                    ], width=6, className='me-4')
                 ], justify='center', className='mt-4 mb-2'),
 
         dbc.Card([
@@ -88,7 +90,7 @@ app.layout = dbc.Container([
                 html.H5(id='current-beat-title', className='text-center'),
 
                 # Main ECG plot!
-                dcc.Graph(id='ecg-plot', config={'displayModeBar': True}, style={'width': '100%', 'height': '100%'}),
+                dcc.Graph(id='ecg-plot', config={'displayModeBar': True}, style={'width': '100%', 'height': '600px'}),
 
                 html.Br(),
 
@@ -105,7 +107,7 @@ app.layout = dbc.Container([
                     className='mb-4'
                 ),
 
-                html.Div("Click on the plot at the correct time point for the selected boundary.", className='mb-3'),
+                html.Div("Click on the plot at the correct time point for the selected boundary. You can click any lead to select the time point.", className='mb-3'),
 
                 dbc.Row([
                     dbc.Col([
@@ -269,7 +271,7 @@ def update_beat_display(current_beats_idx, total_beats, unique_beats_list):
                 y=beat_df[lead],
                 mode='lines',
                 name=lead,
-                visible='legendonly',
+                # visible='legendonly',
                 hovertemplate='<br>'.join([
                     f'<b>Lead:</b> {lead}',
                     'Time: %{x:.2f} s',
