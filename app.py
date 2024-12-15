@@ -45,21 +45,21 @@ app.layout = dbc.Container([
 
     dbc.Row(
         dbc.Col(
-            html.H1("QRS Complex Labeling Tool", className='text-center text-primary mt-4 mb-2'),
+            html.H1("QRS Complex Annotation Tool", className='text-center text-primary mt-4 mb-2'),
             width=12
         )
     ),
 
     dbc.Row(
         dbc.Col(
-            html.H5("Labeling Q Onset, R Peak, and S Offset in Single-Beat ECGs", className='text-center mb-4'),
+            html.H5("Labeling Q-Onset, R-Peak, and S-Offset in Single-Beat ECGs", className='text-center mb-4'),
             width=12
         )
     ),
 
     dbc.Row([
         dbc.Col([
-            dbc.Label("Enter the number of beats you'd like to label:"),
+            dbc.Label("Enter the number of beat waveforms you'd like to label:"),
             dbc.Input(id='num-beats-input', type='number', value=5, min=1, step=1),
             dbc.Button("Start Labeling", id='start-button', n_clicks=0, color='primary', className='mt-2')
         ], width=4)
@@ -73,7 +73,7 @@ app.layout = dbc.Container([
                         dbc.Alert(
                             [
                                 html.Strong("Hint: "),
-                                "Try clicking and couble-clicking leads in the legend to toggle visibility."
+                                "Try clicking and double-clicking leads in the legend to toggle their visibility!"
                             ],
                         color="info",
                         dismissable=True,
